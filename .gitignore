@@ -25,3 +25,5 @@ BookStack/webpack-stats.json
 BookStack/.phpunit.result.cache
 BookStack/.DS_Store
 BookStack/phpstan.neon
+database/backup.sql
+files/bookstack-files-backup.tar.gz

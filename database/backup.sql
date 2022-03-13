@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `activities`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `activities` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `detail` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `detail` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int NOT NULL,
-  `ip` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `entity_id` int DEFAULT NULL,
   `entity_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE `activities` (
   KEY `activities_key_index` (`type`),
   KEY `activities_created_at_index` (`created_at`),
   KEY `activities_ip_index` (`ip`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `activities` (
 
 LOCK TABLES `activities` WRITE;
 /*!40000 ALTER TABLE `activities` DISABLE KEYS */;
-INSERT INTO `activities` VALUES (1,'auth_login','standard; (1) Admin',1,'172.25.0.1',NULL,NULL,'2022-03-12 18:42:06','2022-03-12 18:42:06'),(2,'auth_login','standard; (1) Admin',1,'172.25.0.1',NULL,NULL,'2022-03-12 19:14:32','2022-03-12 19:14:32'),(3,'bookshelf_create','(1) Teste Anotação',1,'172.25.0.1',1,'BookStack\\Bookshelf','2022-03-12 19:16:41','2022-03-12 19:16:41'),(4,'book_create','(1) Teste book',1,'172.25.0.1',1,'BookStack\\Book','2022-03-12 19:17:25','2022-03-12 19:17:25'),(5,'bookshelf_update','(1) Teste Anotação',1,'172.25.0.1',1,'BookStack\\Bookshelf','2022-03-12 19:17:47','2022-03-12 19:17:47'),(6,'auth_login','standard; (1) Admin',1,'172.25.0.1',NULL,NULL,'2022-03-12 19:40:25','2022-03-12 19:40:25');
+INSERT INTO `activities` VALUES (1,'auth_login','standard; (1) Admin',1,'172.25.0.1',NULL,NULL,'2022-03-12 18:42:06','2022-03-12 18:42:06'),(2,'auth_login','standard; (1) Admin',1,'172.25.0.1',NULL,NULL,'2022-03-12 19:14:32','2022-03-12 19:14:32'),(3,'bookshelf_create','(1) Teste Anotação',1,'172.25.0.1',1,'BookStack\\Bookshelf','2022-03-12 19:16:41','2022-03-12 19:16:41'),(4,'book_create','(1) Teste book',1,'172.25.0.1',1,'BookStack\\Book','2022-03-12 19:17:25','2022-03-12 19:17:25'),(5,'bookshelf_update','(1) Teste Anotação',1,'172.25.0.1',1,'BookStack\\Bookshelf','2022-03-12 19:17:47','2022-03-12 19:17:47'),(6,'auth_login','standard; (1) Admin',1,'172.25.0.1',NULL,NULL,'2022-03-12 19:40:25','2022-03-12 19:40:25'),(7,'auth_login','standard; (1) Admin',1,'172.19.0.1',NULL,NULL,'2022-03-13 20:38:56','2022-03-13 20:38:56'),(8,'user_update','(1) Daniel',1,'172.19.0.1',NULL,NULL,'2022-03-13 20:40:55','2022-03-13 20:40:55'),(9,'user_create','(4) Junior',1,'172.19.0.1',NULL,NULL,'2022-03-13 20:42:58','2022-03-13 20:42:58'),(10,'user_update','(1) Daniel',1,'172.19.0.1',NULL,NULL,'2022-03-13 20:43:31','2022-03-13 20:43:31'),(11,'bookshelf_delete','(1) Teste Anotação',1,'172.19.0.1',1,'BookStack\\Bookshelf','2022-03-13 20:43:48','2022-03-13 20:43:48'),(12,'book_delete','(1) Teste book',1,'172.19.0.1',1,'BookStack\\Book','2022-03-13 20:43:56','2022-03-13 20:43:56'),(13,'bookshelf_create','(2) Banco de Dados',1,'172.19.0.1',2,'BookStack\\Bookshelf','2022-03-13 20:50:12','2022-03-13 20:50:12'),(14,'bookshelf_create','(3) Desenvolvimento',1,'172.19.0.1',3,'BookStack\\Bookshelf','2022-03-13 20:53:51','2022-03-13 20:53:51'),(15,'bookshelf_update','(3) Desenvolvimento',1,'172.19.0.1',3,'BookStack\\Bookshelf','2022-03-13 20:54:42','2022-03-13 20:54:42'),(16,'bookshelf_update','(3) Desenvolvimento',1,'172.19.0.1',3,'BookStack\\Bookshelf','2022-03-13 20:55:45','2022-03-13 20:55:45'),(17,'bookshelf_update','(3) Desenvolvimento',1,'172.19.0.1',3,'BookStack\\Bookshelf','2022-03-13 20:56:35','2022-03-13 20:56:35'),(18,'bookshelf_create','(4) Infraestrutura',1,'172.19.0.1',4,'BookStack\\Bookshelf','2022-03-13 21:00:18','2022-03-13 21:00:18'),(19,'bookshelf_update','(4) Infraestrutura',1,'172.19.0.1',4,'BookStack\\Bookshelf','2022-03-13 21:02:03','2022-03-13 21:02:03'),(20,'bookshelf_update','(4) Infraestrutura',1,'172.19.0.1',4,'BookStack\\Bookshelf','2022-03-13 21:03:00','2022-03-13 21:03:00'),(21,'bookshelf_create','(5) UNIFEI',1,'172.19.0.1',5,'BookStack\\Bookshelf','2022-03-13 21:04:14','2022-03-13 21:04:14'),(22,'bookshelf_delete','(5) UNIFEI',1,'172.19.0.1',5,'BookStack\\Bookshelf','2022-03-13 21:04:26','2022-03-13 21:04:26'),(23,'bookshelf_create','(6) Outros',1,'172.19.0.1',6,'BookStack\\Bookshelf','2022-03-13 21:06:37','2022-03-13 21:06:37'),(24,'bookshelf_update','(6) Outros',1,'172.19.0.1',6,'BookStack\\Bookshelf','2022-03-13 21:08:03','2022-03-13 21:08:03'),(25,'bookshelf_update','(6) Outros',1,'172.19.0.1',6,'BookStack\\Bookshelf','2022-03-13 21:09:50','2022-03-13 21:09:50'),(26,'bookshelf_update','(6) Outros',1,'172.19.0.1',6,'BookStack\\Bookshelf','2022-03-13 21:22:40','2022-03-13 21:22:40');
 /*!40000 ALTER TABLE `activities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -60,9 +60,9 @@ DROP TABLE IF EXISTS `api_tokens`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `api_tokens` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `secret` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int unsigned NOT NULL,
   `expires_at` date NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -92,9 +92,9 @@ DROP TABLE IF EXISTS `attachments`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `attachments` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `path` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `extension` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `extension` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `uploaded_to` int NOT NULL,
   `external` tinyint(1) NOT NULL,
   `order` int NOT NULL,
@@ -125,9 +125,9 @@ DROP TABLE IF EXISTS `books`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `books` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int NOT NULL,
@@ -151,7 +151,7 @@ CREATE TABLE `books` (
 
 LOCK TABLES `books` WRITE;
 /*!40000 ALTER TABLE `books` DISABLE KEYS */;
-INSERT INTO `books` VALUES (1,'Teste book','teste-book','teste book 1','2022-03-12 19:17:25','2022-03-12 19:17:25',1,1,0,NULL,NULL,1);
+INSERT INTO `books` VALUES (1,'Teste book','teste-book','teste book 1','2022-03-12 19:17:25','2022-03-13 20:43:56',1,1,0,NULL,'2022-03-13 20:43:56',1);
 /*!40000 ALTER TABLE `books` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -164,9 +164,9 @@ DROP TABLE IF EXISTS `bookshelves`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bookshelves` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_by` int DEFAULT NULL,
   `updated_by` int DEFAULT NULL,
   `restricted` tinyint(1) NOT NULL DEFAULT '0',
@@ -181,7 +181,7 @@ CREATE TABLE `bookshelves` (
   KEY `bookshelves_updated_by_index` (`updated_by`),
   KEY `bookshelves_restricted_index` (`restricted`),
   KEY `bookshelves_owned_by_index` (`owned_by`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -190,7 +190,7 @@ CREATE TABLE `bookshelves` (
 
 LOCK TABLES `bookshelves` WRITE;
 /*!40000 ALTER TABLE `bookshelves` DISABLE KEYS */;
-INSERT INTO `bookshelves` VALUES (1,'Teste Anotação','teste-anotacao','Teste da interface',1,1,0,NULL,'2022-03-12 19:16:41','2022-03-12 19:16:41',NULL,1);
+INSERT INTO `bookshelves` VALUES (1,'Teste Anotação','teste-anotacao','Teste da interface',1,1,0,NULL,'2022-03-12 19:16:41','2022-03-13 20:43:48','2022-03-13 20:43:48',1),(2,'Banco de Dados','banco-de-dados','Banco de dados relacionais, SGBDs, SQL',1,1,0,3,'2022-03-13 20:50:11','2022-03-13 20:50:12',NULL,1),(3,'Desenvolvimento','desenvolvimento','Linguagens de programação, frameworks, testes, ferramentas, design patterns',1,1,0,5,'2022-03-13 20:53:51','2022-03-13 20:56:35',NULL,1),(4,'Infraestrutura','infraestrutura','Docker, Kubernetes, Docker Compose, Sistemas Operacionais',1,1,0,8,'2022-03-13 21:00:18','2022-03-13 21:03:00',NULL,1),(5,'UNIFEI','unifei','',1,1,0,9,'2022-03-13 21:04:14','2022-03-13 21:04:26','2022-03-13 21:04:26',1),(6,'Outros','outros','Outras anotações de assuntos diversos',1,1,0,12,'2022-03-13 21:06:37','2022-03-13 21:22:40',NULL,1);
 /*!40000 ALTER TABLE `bookshelves` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -230,8 +230,8 @@ DROP TABLE IF EXISTS `cache`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cache` (
-  `key` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `expiration` int NOT NULL,
   UNIQUE KEY `cache_key_unique` (`key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -256,9 +256,9 @@ DROP TABLE IF EXISTS `chapters`;
 CREATE TABLE `chapters` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `book_id` int NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `priority` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -297,9 +297,9 @@ DROP TABLE IF EXISTS `comments`;
 CREATE TABLE `comments` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `entity_id` int unsigned NOT NULL,
-  `entity_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` longtext COLLATE utf8mb4_unicode_ci,
-  `html` longtext COLLATE utf8mb4_unicode_ci,
+  `entity_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `html` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `parent_id` int unsigned DEFAULT NULL,
   `local_id` int unsigned DEFAULT NULL,
   `created_by` int unsigned NOT NULL,
@@ -331,7 +331,7 @@ DROP TABLE IF EXISTS `deletions`;
 CREATE TABLE `deletions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `deleted_by` int NOT NULL,
-  `deletable_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `deletable_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `deletable_id` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -339,7 +339,7 @@ CREATE TABLE `deletions` (
   KEY `deletions_deleted_by_index` (`deleted_by`),
   KEY `deletions_deletable_type_index` (`deletable_type`),
   KEY `deletions_deletable_id_index` (`deletable_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -348,6 +348,7 @@ CREATE TABLE `deletions` (
 
 LOCK TABLES `deletions` WRITE;
 /*!40000 ALTER TABLE `deletions` DISABLE KEYS */;
+INSERT INTO `deletions` VALUES (1,1,'BookStack\\Bookshelf',1,'2022-03-13 20:43:48','2022-03-13 20:43:48'),(2,1,'BookStack\\Book',1,'2022-03-13 20:43:56','2022-03-13 20:43:56'),(3,1,'BookStack\\Bookshelf',5,'2022-03-13 21:04:26','2022-03-13 21:04:26');
 /*!40000 ALTER TABLE `deletions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -361,7 +362,7 @@ DROP TABLE IF EXISTS `email_confirmations`;
 CREATE TABLE `email_confirmations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -389,9 +390,9 @@ DROP TABLE IF EXISTS `entity_permissions`;
 CREATE TABLE `entity_permissions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `restrictable_id` int NOT NULL,
-  `restrictable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `restrictable_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `role_id` int NOT NULL,
-  `action` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `action` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `restrictions_role_id_index` (`role_id`),
   KEY `restrictions_action_index` (`action`),
@@ -417,11 +418,11 @@ DROP TABLE IF EXISTS `failed_jobs`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `failed_jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
@@ -448,7 +449,7 @@ CREATE TABLE `favourites` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `favouritable_id` int NOT NULL,
-  `favouritable_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `favouritable_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -475,19 +476,19 @@ DROP TABLE IF EXISTS `images`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `images` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `url` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `url` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `created_by` int NOT NULL,
   `updated_by` int NOT NULL,
-  `path` varchar(400) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `path` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `uploaded_to` int NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `images_type_index` (`type`),
   KEY `images_uploaded_to_index` (`uploaded_to`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -496,6 +497,7 @@ CREATE TABLE `images` (
 
 LOCK TABLES `images` WRITE;
 /*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES (2,'4-avatar.png','http://localhost:9876/uploads/images/user/2022-03/4-avatar.png','2022-03-13 20:42:58','2022-03-13 20:42:58',4,4,'/uploads/images/user/2022-03/4-avatar.png','user',4),(3,'1.png','http://localhost:9876/uploads/images/cover_book/2022-03/1.png','2022-03-13 20:50:12','2022-03-13 20:50:12',1,1,'/uploads/images/cover_book/2022-03/1.png','cover_book',2),(5,'2.png','http://localhost:9876/uploads/images/cover_book/2022-03/2.png','2022-03-13 20:56:35','2022-03-13 20:56:35',1,1,'/uploads/images/cover_book/2022-03/2.png','cover_book',3),(8,'3.png','http://localhost:9876/uploads/images/cover_book/2022-03/3.png','2022-03-13 21:03:00','2022-03-13 21:03:00',1,1,'/uploads/images/cover_book/2022-03/3.png','cover_book',4),(9,'4.png','http://localhost:9876/uploads/images/cover_book/2022-03/4.png','2022-03-13 21:04:14','2022-03-13 21:04:14',1,1,'/uploads/images/cover_book/2022-03/4.png','cover_book',5),(12,'5.png','http://localhost:9876/uploads/images/cover_book/2022-03/5.png','2022-03-13 21:22:40','2022-03-13 21:22:40',1,1,'/uploads/images/cover_book/2022-03/5.png','cover_book',6);
 /*!40000 ALTER TABLE `images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -508,8 +510,8 @@ DROP TABLE IF EXISTS `jobs`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `jobs` (
   `id` bigint unsigned NOT NULL AUTO_INCREMENT,
-  `queue` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `attempts` tinyint unsigned NOT NULL,
   `reserved_at` int unsigned DEFAULT NULL,
   `available_at` int unsigned NOT NULL,
@@ -537,9 +539,9 @@ DROP TABLE IF EXISTS `joint_permissions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `joint_permissions` (
   `role_id` int NOT NULL,
-  `entity_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entity_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `entity_id` int NOT NULL,
-  `action` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `action` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `has_permission` tinyint(1) NOT NULL DEFAULT '0',
   `has_permission_own` tinyint(1) NOT NULL DEFAULT '0',
   `owned_by` int NOT NULL,
@@ -559,7 +561,7 @@ CREATE TABLE `joint_permissions` (
 
 LOCK TABLES `joint_permissions` WRITE;
 /*!40000 ALTER TABLE `joint_permissions` DISABLE KEYS */;
-INSERT INTO `joint_permissions` VALUES (1,'BookStack\\Book',1,'chapter-create',1,1,1),(1,'BookStack\\Book',1,'delete',1,1,1),(1,'BookStack\\Book',1,'page-create',1,1,1),(1,'BookStack\\Book',1,'update',1,1,1),(1,'BookStack\\Book',1,'view',1,1,1),(1,'BookStack\\Bookshelf',1,'delete',1,1,1),(1,'BookStack\\Bookshelf',1,'update',1,1,1),(1,'BookStack\\Bookshelf',1,'view',1,1,1),(2,'BookStack\\Book',1,'chapter-create',1,1,1),(2,'BookStack\\Book',1,'delete',1,1,1),(2,'BookStack\\Book',1,'page-create',1,1,1),(2,'BookStack\\Book',1,'update',1,1,1),(2,'BookStack\\Book',1,'view',1,1,1),(2,'BookStack\\Bookshelf',1,'delete',1,1,1),(2,'BookStack\\Bookshelf',1,'update',1,1,1),(2,'BookStack\\Bookshelf',1,'view',1,1,1),(3,'BookStack\\Book',1,'chapter-create',0,0,1),(3,'BookStack\\Book',1,'delete',0,0,1),(3,'BookStack\\Book',1,'page-create',0,0,1),(3,'BookStack\\Book',1,'update',0,0,1),(3,'BookStack\\Book',1,'view',1,1,1),(3,'BookStack\\Bookshelf',1,'delete',0,0,1),(3,'BookStack\\Bookshelf',1,'update',0,0,1),(3,'BookStack\\Bookshelf',1,'view',1,1,1),(4,'BookStack\\Book',1,'chapter-create',0,0,1),(4,'BookStack\\Book',1,'delete',0,0,1),(4,'BookStack\\Book',1,'page-create',0,0,1),(4,'BookStack\\Book',1,'update',0,0,1),(4,'BookStack\\Book',1,'view',1,1,1),(4,'BookStack\\Bookshelf',1,'delete',0,0,1),(4,'BookStack\\Bookshelf',1,'update',0,0,1),(4,'BookStack\\Bookshelf',1,'view',1,1,1);
+INSERT INTO `joint_permissions` VALUES (1,'BookStack\\Book',1,'chapter-create',1,1,1),(1,'BookStack\\Book',1,'delete',1,1,1),(1,'BookStack\\Book',1,'page-create',1,1,1),(1,'BookStack\\Book',1,'update',1,1,1),(1,'BookStack\\Book',1,'view',1,1,1),(1,'BookStack\\Bookshelf',1,'delete',1,1,1),(1,'BookStack\\Bookshelf',1,'update',1,1,1),(1,'BookStack\\Bookshelf',1,'view',1,1,1),(1,'BookStack\\Bookshelf',2,'delete',1,1,1),(1,'BookStack\\Bookshelf',2,'update',1,1,1),(1,'BookStack\\Bookshelf',2,'view',1,1,1),(1,'BookStack\\Bookshelf',3,'delete',1,1,1),(1,'BookStack\\Bookshelf',3,'update',1,1,1),(1,'BookStack\\Bookshelf',3,'view',1,1,1),(1,'BookStack\\Bookshelf',4,'delete',1,1,1),(1,'BookStack\\Bookshelf',4,'update',1,1,1),(1,'BookStack\\Bookshelf',4,'view',1,1,1),(1,'BookStack\\Bookshelf',5,'delete',1,1,1),(1,'BookStack\\Bookshelf',5,'update',1,1,1),(1,'BookStack\\Bookshelf',5,'view',1,1,1),(1,'BookStack\\Bookshelf',6,'delete',1,1,1),(1,'BookStack\\Bookshelf',6,'update',1,1,1),(1,'BookStack\\Bookshelf',6,'view',1,1,1),(2,'BookStack\\Book',1,'chapter-create',1,1,1),(2,'BookStack\\Book',1,'delete',1,1,1),(2,'BookStack\\Book',1,'page-create',1,1,1),(2,'BookStack\\Book',1,'update',1,1,1),(2,'BookStack\\Book',1,'view',1,1,1),(2,'BookStack\\Bookshelf',1,'delete',1,1,1),(2,'BookStack\\Bookshelf',1,'update',1,1,1),(2,'BookStack\\Bookshelf',1,'view',1,1,1),(2,'BookStack\\Bookshelf',2,'delete',1,1,1),(2,'BookStack\\Bookshelf',2,'update',1,1,1),(2,'BookStack\\Bookshelf',2,'view',1,1,1),(2,'BookStack\\Bookshelf',3,'delete',1,1,1),(2,'BookStack\\Bookshelf',3,'update',1,1,1),(2,'BookStack\\Bookshelf',3,'view',1,1,1),(2,'BookStack\\Bookshelf',4,'delete',1,1,1),(2,'BookStack\\Bookshelf',4,'update',1,1,1),(2,'BookStack\\Bookshelf',4,'view',1,1,1),(2,'BookStack\\Bookshelf',5,'delete',1,1,1),(2,'BookStack\\Bookshelf',5,'update',1,1,1),(2,'BookStack\\Bookshelf',5,'view',1,1,1),(2,'BookStack\\Bookshelf',6,'delete',1,1,1),(2,'BookStack\\Bookshelf',6,'update',1,1,1),(2,'BookStack\\Bookshelf',6,'view',1,1,1),(3,'BookStack\\Book',1,'chapter-create',0,0,1),(3,'BookStack\\Book',1,'delete',0,0,1),(3,'BookStack\\Book',1,'page-create',0,0,1),(3,'BookStack\\Book',1,'update',0,0,1),(3,'BookStack\\Book',1,'view',1,1,1),(3,'BookStack\\Bookshelf',1,'delete',0,0,1),(3,'BookStack\\Bookshelf',1,'update',0,0,1),(3,'BookStack\\Bookshelf',1,'view',1,1,1),(3,'BookStack\\Bookshelf',2,'delete',0,0,1),(3,'BookStack\\Bookshelf',2,'update',0,0,1),(3,'BookStack\\Bookshelf',2,'view',1,1,1),(3,'BookStack\\Bookshelf',3,'delete',0,0,1),(3,'BookStack\\Bookshelf',3,'update',0,0,1),(3,'BookStack\\Bookshelf',3,'view',1,1,1),(3,'BookStack\\Bookshelf',4,'delete',0,0,1),(3,'BookStack\\Bookshelf',4,'update',0,0,1),(3,'BookStack\\Bookshelf',4,'view',1,1,1),(3,'BookStack\\Bookshelf',5,'delete',0,0,1),(3,'BookStack\\Bookshelf',5,'update',0,0,1),(3,'BookStack\\Bookshelf',5,'view',1,1,1),(3,'BookStack\\Bookshelf',6,'delete',0,0,1),(3,'BookStack\\Bookshelf',6,'update',0,0,1),(3,'BookStack\\Bookshelf',6,'view',1,1,1),(4,'BookStack\\Book',1,'chapter-create',0,0,1),(4,'BookStack\\Book',1,'delete',0,0,1),(4,'BookStack\\Book',1,'page-create',0,0,1),(4,'BookStack\\Book',1,'update',0,0,1),(4,'BookStack\\Book',1,'view',1,1,1),(4,'BookStack\\Bookshelf',1,'delete',0,0,1),(4,'BookStack\\Bookshelf',1,'update',0,0,1),(4,'BookStack\\Bookshelf',1,'view',1,1,1),(4,'BookStack\\Bookshelf',2,'delete',0,0,1),(4,'BookStack\\Bookshelf',2,'update',0,0,1),(4,'BookStack\\Bookshelf',2,'view',1,1,1),(4,'BookStack\\Bookshelf',3,'delete',0,0,1),(4,'BookStack\\Bookshelf',3,'update',0,0,1),(4,'BookStack\\Bookshelf',3,'view',1,1,1),(4,'BookStack\\Bookshelf',4,'delete',0,0,1),(4,'BookStack\\Bookshelf',4,'update',0,0,1),(4,'BookStack\\Bookshelf',4,'view',1,1,1),(4,'BookStack\\Bookshelf',5,'delete',0,0,1),(4,'BookStack\\Bookshelf',5,'update',0,0,1),(4,'BookStack\\Bookshelf',5,'view',1,1,1),(4,'BookStack\\Bookshelf',6,'delete',0,0,1),(4,'BookStack\\Bookshelf',6,'update',0,0,1),(4,'BookStack\\Bookshelf',6,'view',1,1,1);
 /*!40000 ALTER TABLE `joint_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -573,8 +575,8 @@ DROP TABLE IF EXISTS `mfa_values`;
 CREATE TABLE `mfa_values` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `method` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `method` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -601,7 +603,7 @@ DROP TABLE IF EXISTS `migrations`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `migrations` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `migration` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -627,17 +629,17 @@ DROP TABLE IF EXISTS `page_revisions`;
 CREATE TABLE `page_revisions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `page_id` int NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `html` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `html` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_by` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `book_slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'version',
-  `markdown` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `summary` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `book_slug` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'version',
+  `markdown` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `summary` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `revision_number` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `page_revisions_page_id_index` (`page_id`),
@@ -668,10 +670,10 @@ CREATE TABLE `pages` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `book_id` int NOT NULL,
   `chapter_id` int NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `html` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `html` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `priority` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -679,7 +681,7 @@ CREATE TABLE `pages` (
   `updated_by` int NOT NULL,
   `restricted` tinyint(1) NOT NULL DEFAULT '0',
   `draft` tinyint(1) NOT NULL DEFAULT '0',
-  `markdown` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `markdown` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `revision_count` int NOT NULL,
   `template` tinyint(1) NOT NULL DEFAULT '0',
   `deleted_at` timestamp NULL DEFAULT NULL,
@@ -715,8 +717,8 @@ DROP TABLE IF EXISTS `password_resets`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `password_resets` (
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL,
   KEY `password_resets_email_index` (`email`),
   KEY `password_resets_token_index` (`token`)
@@ -768,9 +770,9 @@ DROP TABLE IF EXISTS `role_permissions`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role_permissions` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `display_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -811,7 +813,7 @@ CREATE TABLE `role_user` (
 
 LOCK TABLES `role_user` WRITE;
 /*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
-INSERT INTO `role_user` VALUES (1,1),(2,4);
+INSERT INTO `role_user` VALUES (1,1),(4,1),(2,4);
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -824,12 +826,12 @@ DROP TABLE IF EXISTS `roles`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `roles` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `display_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `description` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `display_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `system_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `external_auth_id` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `system_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `external_auth_id` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   `mfa_enforced` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `roles_system_name_index` (`system_name`),
@@ -856,8 +858,8 @@ DROP TABLE IF EXISTS `search_terms`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `search_terms` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `term` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `entity_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `term` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entity_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `entity_id` int NOT NULL,
   `score` int NOT NULL,
   PRIMARY KEY (`id`),
@@ -865,7 +867,7 @@ CREATE TABLE `search_terms` (
   KEY `search_terms_entity_type_index` (`entity_type`),
   KEY `search_terms_entity_type_entity_id_index` (`entity_type`,`entity_id`),
   KEY `search_terms_score_index` (`score`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=84 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -874,7 +876,7 @@ CREATE TABLE `search_terms` (
 
 LOCK TABLES `search_terms` WRITE;
 /*!40000 ALTER TABLE `search_terms` DISABLE KEYS */;
-INSERT INTO `search_terms` VALUES (5,'Teste','BookStack\\Book',1,48),(6,'book','BookStack\\Book',1,49),(7,'teste','BookStack\\Book',1,1),(8,'1','BookStack\\Book',1,1),(9,'Teste','BookStack\\Bookshelf',1,49),(10,'Anotação','BookStack\\Bookshelf',1,48),(11,'da','BookStack\\Bookshelf',1,1),(12,'interface','BookStack\\Bookshelf',1,1);
+INSERT INTO `search_terms` VALUES (5,'Teste','BookStack\\Book',1,48),(6,'book','BookStack\\Book',1,49),(7,'teste','BookStack\\Book',1,1),(8,'1','BookStack\\Book',1,1),(9,'Teste','BookStack\\Bookshelf',1,49),(10,'Anotação','BookStack\\Bookshelf',1,48),(11,'da','BookStack\\Bookshelf',1,1),(12,'interface','BookStack\\Bookshelf',1,1),(13,'Banco','BookStack\\Bookshelf',2,49),(14,'de','BookStack\\Bookshelf',2,49),(15,'Dados','BookStack\\Bookshelf',2,48),(16,'dados','BookStack\\Bookshelf',2,1),(17,'relacionais','BookStack\\Bookshelf',2,1),(18,'SGBDs','BookStack\\Bookshelf',2,1),(19,'SQL','BookStack\\Bookshelf',2,1),(47,'Desenvolvimento','BookStack\\Bookshelf',3,48),(48,'Linguagens','BookStack\\Bookshelf',3,1),(49,'de','BookStack\\Bookshelf',3,1),(50,'programação','BookStack\\Bookshelf',3,1),(51,'frameworks','BookStack\\Bookshelf',3,1),(52,'testes','BookStack\\Bookshelf',3,1),(53,'ferramentas','BookStack\\Bookshelf',3,1),(54,'design','BookStack\\Bookshelf',3,1),(55,'patterns','BookStack\\Bookshelf',3,1),(68,'Infraestrutura','BookStack\\Bookshelf',4,48),(69,'Docker','BookStack\\Bookshelf',4,2),(70,'Kubernetes','BookStack\\Bookshelf',4,1),(71,'Compose','BookStack\\Bookshelf',4,1),(72,'Sistemas','BookStack\\Bookshelf',4,1),(73,'Operacionais','BookStack\\Bookshelf',4,1),(74,'UNIFEI','BookStack\\Bookshelf',5,48),(78,'Outros','BookStack\\Bookshelf',6,48),(79,'Outras','BookStack\\Bookshelf',6,1),(80,'anotações','BookStack\\Bookshelf',6,1),(81,'de','BookStack\\Bookshelf',6,1),(82,'assuntos','BookStack\\Bookshelf',6,1),(83,'diversos','BookStack\\Bookshelf',6,1);
 /*!40000 ALTER TABLE `search_terms` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -886,11 +888,11 @@ DROP TABLE IF EXISTS `sessions`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sessions` (
-  `id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int DEFAULT NULL,
-  `ip_address` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `user_agent` text COLLATE utf8mb4_unicode_ci,
-  `payload` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip_address` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_agent` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `payload` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_activity` int NOT NULL,
   UNIQUE KEY `sessions_id_unique` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -913,11 +915,11 @@ DROP TABLE IF EXISTS `settings`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `settings` (
-  `setting_key` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `setting_key` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `type` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'string',
+  `type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'string',
   PRIMARY KEY (`setting_key`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -928,7 +930,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES ('user:1:books_view_type','list','2022-03-12 19:17:31','2022-03-12 19:17:31','string'),('user:1:bookshelf_view_type','list','2022-03-12 19:16:49','2022-03-12 19:17:57','string'),('user:1:bookshelves_view_type','list','2022-03-12 19:16:58','2022-03-12 19:16:58','string'),('user:1:dark-mode-enabled','false','2022-03-12 19:15:55','2022-03-12 19:15:58','string');
+INSERT INTO `settings` VALUES ('user:1:books_view_type','list','2022-03-12 19:17:31','2022-03-12 19:17:31','string'),('user:1:bookshelf_view_type','list','2022-03-12 19:16:49','2022-03-12 19:17:57','string'),('user:1:bookshelves_view_type','list','2022-03-12 19:16:58','2022-03-12 19:16:58','string'),('user:1:dark-mode-enabled','false','2022-03-12 19:15:55','2022-03-12 19:15:58','string'),('user:1:language','en','2022-03-13 20:40:55','2022-03-13 20:40:55','string'),('user:4:language','pt_BR','2022-03-13 20:42:58','2022-03-13 20:42:58','string');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -942,9 +944,9 @@ DROP TABLE IF EXISTS `social_accounts`;
 CREATE TABLE `social_accounts` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `driver` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `driver_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `avatar` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `driver` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `driver_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `avatar` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -972,9 +974,9 @@ DROP TABLE IF EXISTS `tags`;
 CREATE TABLE `tags` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `entity_id` int NOT NULL,
-  `entity_type` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `entity_type` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `value` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `order` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -1005,13 +1007,13 @@ DROP TABLE IF EXISTS `user_invites`;
 CREATE TABLE `user_invites` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_invites_user_id_index` (`user_id`),
   KEY `user_invites_token_index` (`token`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1032,23 +1034,23 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(60) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(60) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `email_confirmed` tinyint(1) NOT NULL DEFAULT '1',
   `image_id` int NOT NULL DEFAULT '0',
-  `external_auth_id` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `system_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `slug` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `external_auth_id` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `system_name` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(180) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`),
   UNIQUE KEY `users_slug_unique` (`slug`),
   KEY `users_external_auth_id_index` (`external_auth_id`),
   KEY `users_system_name_index` (`system_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1057,7 +1059,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','admin@admin.com','$2y$10$WBUAc3i9mXOaIFKwtbzckOvdZ5R5/iDOC3InZSE/K55qbvYhpjmCe',NULL,'2022-03-12 08:42:46','2022-03-12 08:42:46',1,0,'',NULL,'admin'),(2,'Guest','guest@example.com','',NULL,'2022-03-12 08:42:55','2022-03-12 08:42:55',1,0,'','public','guest');
+INSERT INTO `users` VALUES (1,'Daniel','admin@admin.com','$2y$10$2a7W.ApF4yf/nEwZ.6kIjOfTPKsmqdLDKpGCvkzyKlUTTvUic6doa',NULL,'2022-03-12 08:42:46','2022-03-13 20:43:31',1,0,'',NULL,'daniel'),(2,'Guest','guest@example.com','',NULL,'2022-03-12 08:42:55','2022-03-12 08:42:55',1,0,'','public','guest'),(4,'Junior','junior@garcia.com','$2y$10$qKiFmTCAeAvV221WFvWoa.RKNOEOFf9qnJnuLPcYgiIwVE35SMuey',NULL,'2022-03-13 20:42:58','2022-03-13 20:42:58',1,2,'',NULL,'junior');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1072,14 +1074,14 @@ CREATE TABLE `views` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
   `viewable_id` int NOT NULL,
-  `viewable_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `viewable_type` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `views` int NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `views_user_id_index` (`user_id`),
   KEY `views_viewable_id_index` (`viewable_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1088,7 +1090,7 @@ CREATE TABLE `views` (
 
 LOCK TABLES `views` WRITE;
 /*!40000 ALTER TABLE `views` DISABLE KEYS */;
-INSERT INTO `views` VALUES (1,1,1,'BookStack\\Bookshelf',6,'2022-03-12 19:16:41','2022-03-12 19:17:57'),(2,1,1,'BookStack\\Book',1,'2022-03-12 19:17:25','2022-03-12 19:17:25');
+INSERT INTO `views` VALUES (1,1,1,'BookStack\\Bookshelf',8,'2022-03-12 19:16:41','2022-03-13 20:43:43'),(2,1,1,'BookStack\\Book',3,'2022-03-12 19:17:25','2022-03-13 20:43:52'),(3,1,2,'BookStack\\Bookshelf',1,'2022-03-13 20:50:12','2022-03-13 20:50:12'),(4,1,3,'BookStack\\Bookshelf',5,'2022-03-13 20:53:52','2022-03-13 20:56:35'),(5,1,4,'BookStack\\Bookshelf',5,'2022-03-13 21:00:18','2022-03-13 21:03:00'),(6,1,5,'BookStack\\Bookshelf',2,'2022-03-13 21:04:15','2022-03-13 21:04:21'),(7,1,6,'BookStack\\Bookshelf',6,'2022-03-13 21:06:38','2022-03-13 21:22:41');
 /*!40000 ALTER TABLE `views` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1102,7 +1104,7 @@ DROP TABLE IF EXISTS `webhook_tracked_events`;
 CREATE TABLE `webhook_tracked_events` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
   `webhook_id` int NOT NULL,
-  `event` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `event` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -1129,13 +1131,13 @@ DROP TABLE IF EXISTS `webhooks`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `webhooks` (
   `id` int unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `name` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` tinyint(1) NOT NULL,
-  `endpoint` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `endpoint` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   `timeout` int unsigned NOT NULL DEFAULT '3',
-  `last_error` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `last_error` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_called_at` timestamp NULL DEFAULT NULL,
   `last_errored_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -1162,4 +1164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-12 13:57:33
+-- Dump completed on 2022-03-13 15:22:58
