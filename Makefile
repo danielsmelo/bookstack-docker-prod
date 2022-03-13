@@ -3,7 +3,7 @@ t=
 backup-db:
 	docker exec bookstacksql /usr/bin/mysqldump -u root --password=root bookstack > database/backup.sql
 restore-db:
-	cat backup.sql | docker exec -i bookstacksql /usr/bin/mysql -u root --password=root bookstack
+	cat database/backup.sql | docker exec -i bookstacksql /usr/bin/mysql -u root --password=root bookstack
 up:
 	docker-compose up
 db:
